@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FawadTalks — Design & Picks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1c1a17;
+    --paper: #f6f1e9;
+    --clay: #b8562f;
+    --olive: #5c6b4d;
+    --line: #d9cfbd;
+    --muted: #6e6659;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  * { box-sizing: inherit; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #efe9df;
+      --paper: #1b1915;
+      --line: #35312a;
+      --muted: #a69c8a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #efe9df;
+    --paper: #1b1915;
+    --line: #35312a;
+    --muted: #a69c8a;
+  }
+  h1, h2, h3 { font-family: 'Fraunces', serif; margin: 0; font-weight: 600; }
+  a { color: inherit; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+  header.top {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 24px calc(24px + env(safe-area-inset-top, 0px));
+    max-width: 920px; margin: 0 auto;
+  }
+  .brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.01em; }
+  .brand span { color: var(--clay); }
+  nav a { text-decoration: none; margin-left: 22px; font-size: 0.95rem; color: var(--muted); }
+  nav a:hover { color: var(--ink); }
+
+  .hero {
+    padding: 56px 24px 72px;
+    max-width: 920px; margin: 0 auto;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    line-height: 1.08;
+    max-width: 14ch;
+  }
+  .hero .tag { color: var(--clay); font-style: italic; }
+  .hero p.lede {
+    margin-top: 20px; max-width: 46ch; color: var(--muted); font-size: 1.08rem;
+  }
+  .hero-ctas { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 12px 22px; text-decoration: none;
+    font-weight: 500; font-size: 0.95rem; border: 1px solid var(--ink);
+  }
+  .btn.solid { background: var(--ink); color: var(--paper); }
+  .btn.ghost { background: transparent; color: var(--ink); }
+
+  section { padding: 64px 24px; max-width: 920px; margin: 0 auto; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 36px; gap: 20px; flex-wrap: wrap; }
+  .section-head h2 { font-size: 1.8rem; }
+  .section-head p { color: var(--muted); margin: 0; font-size: 0.95rem; max-width: 36ch; }
+
+  .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .service { background: var(--paper); padding: 28px; }
+  .service h3 { font-size: 1.15rem; margin-bottom: 10px; }
+  .service p { color: var(--muted); font-size: 0.95rem; margin: 0 0 16px; }
+  .service a { font-size: 0.9rem; color: var(--clay); text-decoration: none; }
+  .service a:hover { text-decoration: underline; }
+  @media (max-width: 600px) { .services { grid-template-columns: 1fr; } }
+
+  .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .product { border: 1px solid var(--line); padding: 18px; }
+  .product .thumb {
+    aspect-ratio: 1; background: var(--line); margin-bottom: 14px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 0.8rem;
+  }
+  .product h3 { font-size: 1rem; margin-bottom: 6px; }
+  .product .price { color: var(--olive); font-weight: 600; font-size: 0.95rem; margin-bottom: 10px; }
+  .product a.buy {
+    display: inline-block; font-size: 0.85rem; text-decoration: none;
+    color: var(--paper); background: var(--clay); padding: 8px 16px;
+  }
+  @media (max-width: 700px) { .products { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 460px) { .products { grid-template-columns: 1fr; } }
+
+  footer {
+    padding: 40px 24px calc(40px + env(safe-area-inset-bottom, 0px));
+    max-width: 920px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+  footer .social a { text-decoration: none; margin-right: 18px; font-size: 0.9rem; color: var(--muted); }
+  footer .social a:hover { color: var(--ink); }
+  footer .copy { font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">Fawad<span>Talks</span></div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#picks">Picks</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Clean edits. Sharp designs. <span class="tag">Real picks.</span></h1>
+  <p class="lede">I'm Fawad — I edit product photos and design visuals on Fiverr, and I share the products I personally use and recommend here.</p>
+  <div class="hero-ctas">
+    <a href="#services" class="btn solid">See my services</a>
+    <a href="#picks" class="btn ghost">Browse picks</a>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-head">
+    <h2>What I do on Fiverr</h2>
+    <p>Photo editing and product design for sellers who want their listings to look right.</p>
+  </div>
+  <div class="services">
+    <div class="service">
+      <h3>Product photo editing</h3>
+      <p>Background removal, color correction, retouching — ready for Daraz, Amazon, Instagram or any storefront.</p>
+      <a href="#">Order on Fiverr →</a>
+    </div>
+    <div class="service">
+      <h3>Product design</h3>
+      <p>Packaging mockups, labels, and clean product visuals built from your photos or from scratch.</p>
+      <a href="#">Order on Fiverr →</a>
+    </div>
+    <div class="service">
+      <h3>Social media posts</h3>
+      <p>Banners and post designs for shops that need consistent, on-brand visuals every week.</p>
+      <a href="#">Order on Fiverr →</a>
+    </div>
+    <div class="service">
+      <h3>Logo & branding</h3>
+      <p>Simple, usable logos for small sellers and new businesses — no bloated packages.</p>
+      <a href="#">Order on Fiverr →</a>
+    </div>
+  </div>
+</section>
+
+<section id="picks">
+  <div class="section-head">
+    <h2>Things I recommend</h2>
+    <p>Affiliate picks — I may earn a small commission if you buy through these links.</p>
+  </div>
+  <div class="products">
+    <div class="product">
+      <div class="thumb">Product photo</div>
+      <h3>Product name</h3>
+      <div class="price">Rs —</div>
+      <a href="#" class="buy">View</a>
+    </div>
+    <div class="product">
+      <div class="thumb">Product photo</div>
+      <h3>Product name</h3>
+      <div class="price">Rs —</div>
+      <a href="#" class="buy">View</a>
+    </div>
+    <div class="product">
+      <div class="thumb">Product photo</div>
+      <h3>Product name</h3>
+      <div class="price">Rs —</div>
+      <a href="#" class="buy">View</a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="social">
+    <a href="#">Fiverr</a>
+    <a href="#">Instagram</a>
+    <a href="#">TikTok</a>
+    <a href="#">YouTube</a>
+  </div>
+  <div class="copy">© 2026 FawadTalks</div>
+</footer>
+
+</body>
+</html>
